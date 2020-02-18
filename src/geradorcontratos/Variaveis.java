@@ -303,9 +303,4 @@ public class Variaveis {
 
     public Variaveis() {
     }
-
-    void setFornecedorText(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
