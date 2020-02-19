@@ -6,6 +6,8 @@
 package geradorcontratos;
 
 import static java.lang.String.*;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JInternalFrame;
 
 /**
@@ -136,6 +138,7 @@ public class FormularioContrato extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Fornecedor");
+        jLabel1.setAutoscrolls(true);
         jPanel1.add(jLabel1);
 
         fornecedortField.setPreferredSize(new java.awt.Dimension(200, 20));
@@ -908,13 +911,27 @@ public class FormularioContrato extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        contrato.setFornecedor(fornecedortField.getText());
-        System.out.println(contrato.fornecedor);
+        
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+ 
+        String src = "relatorio.jasper";
+        JasperPrint jaspertPrint = null;
+        jaspertPrint = JasperFillManager.fillreport(src,mapaX);
+                
+        Map<String, Object> mapaX = new HashMap<>(); 
+        mapaX.put("Nome1","teste");
+        mapaX.put("Nome2","teste2");
+        mapaX.put("Nome3","teste3");
+        
+        
+        contrato.setFornecedor(fornecedortField.getText());
+        System.out.println(contrato.fornecedor);
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

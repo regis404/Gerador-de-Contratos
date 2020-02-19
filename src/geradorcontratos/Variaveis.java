@@ -4,6 +4,43 @@ import java.util.Date;
 
 public class Variaveis {
 
+    String fornecedor = "batata";//////////////
+    String objetoDoContrato;
+    String valorDoContato;
+    Date ctI;
+    Date ctF;
+    Date prorrogaI;
+    Date prorrogaF;
+    Date ta1Inicio;
+    Date ta1Final;
+    Date ta2Inicio;
+    Date ta2Final;
+    Date ta3Inicio;
+    Date ta3Final;
+    Date ta4Inicio;
+    Date ta4Final;
+    String ta1Valor;
+    String ta2Valor;
+    String ta3Valor;
+    String ta4Valor;
+    String ta1Objeto;
+    String ta2Objeto;
+    String ta3Objeto;
+    String ta4Objeto;
+    float pagamentos2017[] = new float[11];
+    float pagamentos2018[] = new float[11];
+    float pagamentos2019[] = new float[11];
+    float pagamentos2020[] = new float[11];
+    float mesLimitePag;
+    float pagTotal;
+    float empenho;
+    float valorTotalEmpenho;
+    float saldoEmpenho = 15;  ////////////////////
+    String detalhamentoObjeto;
+
+    public Variaveis() {
+    }
+
     public String getFornecedor() {
         return fornecedor;
     }
@@ -188,7 +225,7 @@ public class Variaveis {
         this.ta4Objeto = ta4Objeto;
     }
 
-    public double[] getPagamentos2017() {
+    public float[] getPagamentos2017() {
         return pagamentos2017;
     }
 
@@ -196,7 +233,7 @@ public class Variaveis {
         this.pagamentos2017 = pagamentos2017;
     }
 
-    public double[] getPagamentos2018() {
+    public float[] getPagamentos2018() {
         return pagamentos2018;
     }
 
@@ -204,7 +241,7 @@ public class Variaveis {
         this.pagamentos2018 = pagamentos2018;
     }
 
-    public double[] getPagamentos2019() {
+    public float[] getPagamentos2019() {
         return pagamentos2019;
     }
 
@@ -212,7 +249,7 @@ public class Variaveis {
         this.pagamentos2019 = pagamentos2019;
     }
 
-    public double[] getPagamentos2020() {
+    public float[] getPagamentos2020() {
         return pagamentos2020;
     }
 
@@ -267,40 +304,5 @@ public class Variaveis {
     public void setDetalhamentoObjeto(String detalhamentoObjeto) {
         this.detalhamentoObjeto = detalhamentoObjeto;
     }
-
-    String fornecedor = "batata";//////////////
-    String objetoDoContrato;
-    String valorDoContato;
-    Date ctI;
-    Date ctF;
-    Date prorrogaI;
-    Date prorrogaF;
-    Date ta1Inicio;
-    Date ta1Final;
-    Date ta2Inicio;
-    Date ta2Final;
-    Date ta3Inicio;
-    Date ta3Final;
-    Date ta4Inicio;
-    Date ta4Final;
-    String ta1Valor;
-    String ta2Valor;
-    String ta3Valor;
-    String ta4Valor;
-    String ta1Objeto;
-    String ta2Objeto;
-    String ta3Objeto;
-    String ta4Objeto;
-    float pagamentos2017[] = new float[11];
-    float pagamentos2018[] = new float[11];
-    float pagamentos2019[] = new float[11];
-    float pagamentos2020[] = new float[11];
-    float mesLimitePag;
-    float pagTotal;
-    float empenho;
-    float saldoEmpenho = 15;  ////////////////////
-    String detalhamentoObjeto;
-
-    public Variaveis() {
-    }
+    
 }
