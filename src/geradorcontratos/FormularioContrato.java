@@ -5,11 +5,16 @@
  */
 package geradorcontratos;
 
-import static java.lang.String.*;
+import java.io.InputStream;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JInternalFrame;
-
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 /**
  *
  * @author 6459
@@ -19,7 +24,6 @@ public class FormularioContrato extends javax.swing.JFrame {
     /**
      * Creates new form formularioContrato
      */
-    Variaveis contrato = new Variaveis();
     public FormularioContrato() {
         initComponents();
     }
@@ -35,72 +39,77 @@ public class FormularioContrato extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel9 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        fornecedortField = new java.awt.TextField();
         jPanel2 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        fornecedortF = new java.awt.TextField();
+        jLabel46 = new javax.swing.JLabel();
+        ncontratoF = new java.awt.TextField();
+        jLabel47 = new javax.swing.JLabel();
+        nprocessoF = new java.awt.TextField();
+        jLabel48 = new javax.swing.JLabel();
+        nprocessopagamentoF = new java.awt.TextField();
+        jLabel43 = new javax.swing.JLabel();
+        gestorcontratoF = new java.awt.TextField();
+        jLabel44 = new javax.swing.JLabel();
+        modalcontratoF = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
-        objetoContratotField = new java.awt.TextField();
+        objcontratoF = new java.awt.TextField();
         jLabel3 = new javax.swing.JLabel();
-        valorContratotField = new java.awt.TextField();
+        valcontratoF = new java.awt.TextField();
         jPanel4 = new javax.swing.JPanel();
         VigenciaLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        textField4 = new java.awt.TextField();
+        vigTAiniF = new java.awt.TextField();
         jLabel6 = new javax.swing.JLabel();
-        textField5 = new java.awt.TextField();
+        vigTAfimF = new java.awt.TextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        textField6 = new java.awt.TextField();
+        vigPROiniF = new java.awt.TextField();
         jLabel9 = new javax.swing.JLabel();
-        textField7 = new java.awt.TextField();
+        vigPROfimF = new java.awt.TextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        textField8 = new java.awt.TextField();
+        ta2iniF = new java.awt.TextField();
         jLabel12 = new javax.swing.JLabel();
-        textField9 = new java.awt.TextField();
-        jLabel13 = new javax.swing.JLabel();
+        ta2fimF = new java.awt.TextField();
         jLabel14 = new javax.swing.JLabel();
-        textField10 = new java.awt.TextField();
+        ta2valF = new java.awt.TextField();
         jLabel15 = new javax.swing.JLabel();
-        textField11 = new java.awt.TextField();
+        ta2objF = new java.awt.TextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        textField12 = new java.awt.TextField();
+        ta1iniF = new java.awt.TextField();
         jLabel19 = new javax.swing.JLabel();
-        textField13 = new java.awt.TextField();
-        jLabel20 = new javax.swing.JLabel();
+        ta1fimF = new java.awt.TextField();
         jLabel21 = new javax.swing.JLabel();
-        textField14 = new java.awt.TextField();
+        ta1valF = new java.awt.TextField();
         jLabel22 = new javax.swing.JLabel();
-        textField15 = new java.awt.TextField();
+        ta1objF = new java.awt.TextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        textField16 = new java.awt.TextField();
+        ta3iniF = new java.awt.TextField();
         jLabel25 = new javax.swing.JLabel();
-        textField17 = new java.awt.TextField();
-        jLabel26 = new javax.swing.JLabel();
+        ta3fimF = new java.awt.TextField();
         jLabel27 = new javax.swing.JLabel();
-        textField18 = new java.awt.TextField();
+        ta3valF = new java.awt.TextField();
         jLabel28 = new javax.swing.JLabel();
-        textField19 = new java.awt.TextField();
+        ta3objF = new java.awt.TextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        textField20 = new java.awt.TextField();
+        ta4iniF = new java.awt.TextField();
         jLabel31 = new javax.swing.JLabel();
-        textField21 = new java.awt.TextField();
-        jLabel32 = new javax.swing.JLabel();
+        ta4fimF = new java.awt.TextField();
         jLabel33 = new javax.swing.JLabel();
-        textField22 = new java.awt.TextField();
+        ta4valF = new java.awt.TextField();
         jLabel34 = new javax.swing.JLabel();
-        textField23 = new java.awt.TextField();
+        ta4objF = new java.awt.TextField();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -115,15 +124,13 @@ public class FormularioContrato extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        textField1 = new java.awt.TextField();
-        textField2 = new java.awt.TextField();
-        textField3 = new java.awt.TextField();
+        saldoempenhoF = new java.awt.TextField();
+        empenhoF = new java.awt.TextField();
+        valtotalF = new java.awt.TextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        detalobjsF = new java.awt.TextArea();
         jPanel16 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,49 +140,82 @@ public class FormularioContrato extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("Fornecedor");
-        jLabel1.setAutoscrolls(true);
-        jPanel1.add(jLabel1);
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel45.setText("Fornecedor");
+        jPanel2.add(jLabel45);
 
-        fornecedortField.setPreferredSize(new java.awt.Dimension(200, 20));
-        fornecedortField.addActionListener(new java.awt.event.ActionListener() {
+        fornecedortF.setPreferredSize(new java.awt.Dimension(200, 20));
+        fornecedortF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fornecedortFieldActionPerformed(evt);
+                fornecedortFActionPerformed(evt);
             }
         });
-        jPanel1.add(fornecedortField);
+        jPanel2.add(fornecedortF);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 351;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel9.add(jPanel1, gridBagConstraints);
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel46.setText("N° Contrato");
+        jPanel2.add(jLabel46);
 
-        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
+        ncontratoF.setPreferredSize(new java.awt.Dimension(200, 20));
+        ncontratoF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ncontratoFActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ncontratoF);
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setText("N° Processo");
+        jPanel2.add(jLabel47);
+
+        nprocessoF.setPreferredSize(new java.awt.Dimension(200, 20));
+        nprocessoF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nprocessoFActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nprocessoF);
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel48.setText("N° Processo Pagamento");
+        jPanel2.add(jLabel48);
+
+        nprocessopagamentoF.setPreferredSize(new java.awt.Dimension(200, 20));
+        nprocessopagamentoF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nprocessopagamentoFActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nprocessopagamentoF);
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel43.setText("Gestor do Contrato");
+        jPanel2.add(jLabel43);
+        jPanel2.add(gestorcontratoF);
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel44.setText("Modalidade da Contratação");
+        jPanel2.add(jLabel44);
+        jPanel2.add(modalcontratoF);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Objeto do Contrato");
         jPanel2.add(jLabel2);
 
-        objetoContratotField.setPreferredSize(new java.awt.Dimension(400, 20));
-        objetoContratotField.addActionListener(new java.awt.event.ActionListener() {
+        objcontratoF.setPreferredSize(new java.awt.Dimension(400, 20));
+        objcontratoF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                objetoContratotFieldActionPerformed(evt);
+                objcontratoFActionPerformed(evt);
             }
         });
-        jPanel2.add(objetoContratotField);
+        jPanel2.add(objcontratoF);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Valor do Contrato");
         jPanel2.add(jLabel3);
-        jPanel2.add(valorContratotField);
+        jPanel2.add(valcontratoF);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -215,17 +255,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel4.add(jLabel5, gridBagConstraints);
 
-        textField4.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField4.addActionListener(new java.awt.event.ActionListener() {
+        vigTAiniF.setPreferredSize(new java.awt.Dimension(50, 20));
+        vigTAiniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField4ActionPerformed(evt);
+                vigTAiniFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel4.add(textField4, gridBagConstraints);
+        jPanel4.add(vigTAiniF, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Fim");
@@ -234,12 +274,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel4.add(jLabel6, gridBagConstraints);
 
-        textField5.setPreferredSize(new java.awt.Dimension(50, 20));
+        vigTAfimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel4.add(textField5, gridBagConstraints);
+        jPanel4.add(vigTAfimF, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Prorrogação (Ultimo TA)");
@@ -256,12 +296,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel4.add(jLabel8, gridBagConstraints);
 
-        textField6.setPreferredSize(new java.awt.Dimension(50, 20));
+        vigPROiniF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel4.add(textField6, gridBagConstraints);
+        jPanel4.add(vigPROiniF, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Fim");
@@ -270,12 +310,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel4.add(jLabel9, gridBagConstraints);
 
-        textField7.setPreferredSize(new java.awt.Dimension(50, 20));
+        vigPROfimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel4.add(textField7, gridBagConstraints);
+        jPanel4.add(vigPROfimF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -315,16 +355,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel5.add(jLabel11, gridBagConstraints);
 
-        textField8.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField8.addActionListener(new java.awt.event.ActionListener() {
+        ta2iniF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta2iniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField8ActionPerformed(evt);
+                ta2iniFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        jPanel5.add(textField8, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel5.add(ta2iniF, gridBagConstraints);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Fim");
@@ -333,19 +374,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel5.add(jLabel12, gridBagConstraints);
 
-        textField9.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta2fimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        jPanel5.add(textField9, gridBagConstraints);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setText("Total(CT+1.°TA+2.°TA+3°TA)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        jPanel5.add(jLabel13, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel5.add(ta2fimF, gridBagConstraints);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("Valor");
@@ -354,11 +388,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel5.add(jLabel14, gridBagConstraints);
 
-        textField10.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta2valF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        jPanel5.add(textField10, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel5.add(ta2valF, gridBagConstraints);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Objeto");
@@ -367,18 +402,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel5.add(jLabel15, gridBagConstraints);
 
-        textField11.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField11.addActionListener(new java.awt.event.ActionListener() {
+        ta2objF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta2objF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField11ActionPerformed(evt);
+                ta2objFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 16;
-        jPanel5.add(textField11, gridBagConstraints);
+        gridBagConstraints.ipadx = 150;
+        jPanel5.add(ta2objF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -407,16 +441,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel6.add(jLabel18, gridBagConstraints);
 
-        textField12.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField12.addActionListener(new java.awt.event.ActionListener() {
+        ta1iniF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta1iniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField12ActionPerformed(evt);
+                ta1iniFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        jPanel6.add(textField12, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel6.add(ta1iniF, gridBagConstraints);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("Fim");
@@ -426,19 +461,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel6.add(jLabel19, gridBagConstraints);
 
-        textField13.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta1fimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        jPanel6.add(textField13, gridBagConstraints);
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel20.setText("Total(CT+1.°TA+2.°TA+3°TA)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        jPanel6.add(jLabel20, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel6.add(ta1fimF, gridBagConstraints);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setText("Valor");
@@ -448,11 +476,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel6.add(jLabel21, gridBagConstraints);
 
-        textField14.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta1valF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        jPanel6.add(textField14, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel6.add(ta1valF, gridBagConstraints);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("Objeto");
@@ -462,19 +491,18 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel6.add(jLabel22, gridBagConstraints);
 
-        textField15.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField15.addActionListener(new java.awt.event.ActionListener() {
+        ta1objF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta1objF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField15ActionPerformed(evt);
+                ta1objFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipady = 16;
-        jPanel6.add(textField15, gridBagConstraints);
+        gridBagConstraints.ipadx = 150;
+        jPanel6.add(ta1objF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -502,16 +530,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel7.add(jLabel24, gridBagConstraints);
 
-        textField16.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField16.addActionListener(new java.awt.event.ActionListener() {
+        ta3iniF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta3iniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField16ActionPerformed(evt);
+                ta3iniFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        jPanel7.add(textField16, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel7.add(ta3iniF, gridBagConstraints);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setText("Fim");
@@ -520,19 +549,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel7.add(jLabel25, gridBagConstraints);
 
-        textField17.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta3fimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        jPanel7.add(textField17, gridBagConstraints);
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel26.setText("Total(CT+1.°TA+2.°TA+3°TA)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        jPanel7.add(jLabel26, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel7.add(ta3fimF, gridBagConstraints);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel27.setText("Valor");
@@ -541,11 +563,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel7.add(jLabel27, gridBagConstraints);
 
-        textField18.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta3valF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        jPanel7.add(textField18, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel7.add(ta3valF, gridBagConstraints);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel28.setText("Objeto");
@@ -554,18 +577,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel7.add(jLabel28, gridBagConstraints);
 
-        textField19.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField19.addActionListener(new java.awt.event.ActionListener() {
+        ta3objF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta3objF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField19ActionPerformed(evt);
+                ta3objFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 16;
-        jPanel7.add(textField19, gridBagConstraints);
+        gridBagConstraints.ipadx = 150;
+        jPanel7.add(ta3objF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -593,16 +615,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel8.add(jLabel30, gridBagConstraints);
 
-        textField20.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField20.addActionListener(new java.awt.event.ActionListener() {
+        ta4iniF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta4iniF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField20ActionPerformed(evt);
+                ta4iniFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        jPanel8.add(textField20, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel8.add(ta4iniF, gridBagConstraints);
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel31.setText("Fim");
@@ -611,19 +634,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel8.add(jLabel31, gridBagConstraints);
 
-        textField21.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta4fimF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        jPanel8.add(textField21, gridBagConstraints);
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel32.setText("Total(CT+1.°TA+2.°TA+3°TA)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        jPanel8.add(jLabel32, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel8.add(ta4fimF, gridBagConstraints);
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel33.setText("Valor");
@@ -632,11 +648,12 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel8.add(jLabel33, gridBagConstraints);
 
-        textField22.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta4valF.setPreferredSize(new java.awt.Dimension(50, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        jPanel8.add(textField22, gridBagConstraints);
+        gridBagConstraints.ipadx = 30;
+        jPanel8.add(ta4valF, gridBagConstraints);
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel34.setText("Objeto");
@@ -645,18 +662,17 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         jPanel8.add(jLabel34, gridBagConstraints);
 
-        textField23.setPreferredSize(new java.awt.Dimension(50, 20));
-        textField23.addActionListener(new java.awt.event.ActionListener() {
+        ta4objF.setPreferredSize(new java.awt.Dimension(50, 20));
+        ta4objF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField23ActionPerformed(evt);
+                ta4objFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipady = 16;
-        jPanel8.add(textField23, gridBagConstraints);
+        gridBagConstraints.ipadx = 150;
+        jPanel8.add(ta4objF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -712,7 +728,7 @@ public class FormularioContrato extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -777,39 +793,44 @@ public class FormularioContrato extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 47;
+        gridBagConstraints.ipadx = 150;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel14.add(textField1, gridBagConstraints);
+        jPanel14.add(saldoempenhoF, gridBagConstraints);
 
-        textField2.addActionListener(new java.awt.event.ActionListener() {
+        empenhoF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField2ActionPerformed(evt);
+                empenhoFActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 47;
+        gridBagConstraints.ipadx = 150;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel14.add(textField2, gridBagConstraints);
+        jPanel14.add(empenhoF, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 47;
+        gridBagConstraints.ipadx = 150;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel14.add(textField3, gridBagConstraints);
+        jPanel14.add(valtotalF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
         jPanel10.add(jPanel14, gridBagConstraints);
 
         jPanel15.setMinimumSize(new java.awt.Dimension(90, 90));
-        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.Y_AXIS));
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel42.setText("DETALHAMENTO DO OBJETO DO CONTRATO / OBSERVAÇÕES");
+        jLabel42.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel15.add(jLabel42);
-        jPanel15.add(textArea1);
+
+        detalobjsF.setPreferredSize(new java.awt.Dimension(100, 152));
+        jPanel15.add(detalobjsF);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -817,24 +838,6 @@ public class FormularioContrato extends javax.swing.JFrame {
         jPanel10.add(jPanel15, gridBagConstraints);
 
         jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.LINE_AXIS));
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setText("Voltar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jButton4);
-
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton5.setText("Salvar Editavel");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jButton5);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Gerar PDF");
@@ -855,89 +858,125 @@ public class FormularioContrato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField11ActionPerformed
+    private void ta2objFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta2objFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField11ActionPerformed
+    }//GEN-LAST:event_ta2objFActionPerformed
 
-    private void textField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField8ActionPerformed
+    private void ta2iniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta2iniFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField8ActionPerformed
+    }//GEN-LAST:event_ta2iniFActionPerformed
 
-    private void textField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField12ActionPerformed
+    private void ta1iniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta1iniFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField12ActionPerformed
+    }//GEN-LAST:event_ta1iniFActionPerformed
 
-    private void textField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField15ActionPerformed
+    private void ta1objFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta1objFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField15ActionPerformed
+    }//GEN-LAST:event_ta1objFActionPerformed
 
-    private void textField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField16ActionPerformed
+    private void ta3iniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta3iniFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField16ActionPerformed
+    }//GEN-LAST:event_ta3iniFActionPerformed
 
-    private void textField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField19ActionPerformed
+    private void ta3objFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta3objFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField19ActionPerformed
+    }//GEN-LAST:event_ta3objFActionPerformed
 
-    private void textField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField20ActionPerformed
+    private void ta4iniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta4iniFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField20ActionPerformed
+    }//GEN-LAST:event_ta4iniFActionPerformed
 
-    private void textField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField23ActionPerformed
+    private void ta4objFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ta4objFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField23ActionPerformed
+    }//GEN-LAST:event_ta4objFActionPerformed
 
-    private void objetoContratotFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objetoContratotFieldActionPerformed
+    private void objcontratoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objcontratoFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_objetoContratotFieldActionPerformed
+    }//GEN-LAST:event_objcontratoFActionPerformed
 
-    private void textField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField4ActionPerformed
+    private void vigTAiniFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vigTAiniFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField4ActionPerformed
+    }//GEN-LAST:event_vigTAiniFActionPerformed
 
-    private void fornecedortFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fornecedortFieldActionPerformed
-      
-        
-    }//GEN-LAST:event_fornecedortFieldActionPerformed
+    private void fornecedortFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fornecedortFActionPerformed
 
-    private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
+    }//GEN-LAST:event_fornecedortFActionPerformed
+
+    private void empenhoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empenhoFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        System.out.println(contrato.fornecedor);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_empenhoFActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        HashMap parametros = new HashMap();
+        parametros.put("fornecedor",fornecedortF.getText());
+        parametros.put("ncontrato",ncontratoF.getText());
+        parametros.put("nprocesso",nprocessoF.getText());
+        parametros.put("nprocessopagamento",nprocessopagamentoF.getText()); 
+        parametros.put("gestorcontrato",gestorcontratoF.getText());
+        parametros.put("modalcontrata",modalcontratoF.getText());
+        
+       /* parametros.put("objcontrato",objcontratoF.getText());
+        parametros.put("valcontrato",valcontratoF.getText());
+        
+        parametros.put("vigCTini",vigTAiniF.getText());
+        parametros.put("vigCTfim",vigTAfimF.getText());
+        parametros.put("vigPROini",vigPROiniF.getText());
+        parametros.put("vigPROfim",vigPROfimF.getText());
+        
+        parametros.put("ta1ini",ta1iniF.getText());
+        parametros.put("ta1fim",ta1fimF.getText());
+        parametros.put("ta1val",ta1valF.getText());
+        parametros.put("ta1obj",ta1objF.getText());
+        parametros.put("ta2ini",ta2iniF.getText());
+        parametros.put("ta2fim",ta2fimF.getText());
+        parametros.put("ta2val",ta2valF.getText());
+        parametros.put("ta2obj",ta2objF.getText());
+        parametros.put("ta3ini",ta3iniF.getText());
+        parametros.put("ta3fim",ta3fimF.getText());
+        parametros.put("ta3val",ta3valF.getText());
+        parametros.put("ta3obj",ta3objF.getText());
+        parametros.put("ta4ini",ta4iniF.getText());
+        parametros.put("ta4fim",ta4fimF.getText());
+        parametros.put("ta4val",ta4valF.getText());
+        parametros.put("ta4obj",ta4objF.getText());
+        
+        
+        parametros.put("valtotal",valtotalF.getText());
+        parametros.put("empenho",empenhoF.getText());
+        parametros.put("saldoempenho",saldoempenhoF.getText());
+        parametros.put("detalobs",detalobjsF.getText());
+      */
  
-        String src = "relatorio.jasper";
-        JasperPrint jaspertPrint = null;
-        jaspertPrint = JasperFillManager.fillreport(src,mapaX);
-                
-        Map<String, Object> mapaX = new HashMap<>(); 
-        mapaX.put("Nome1","teste");
-        mapaX.put("Nome2","teste2");
-        mapaX.put("Nome3","teste3");
         
-        
-        contrato.setFornecedor(fornecedortField.getText());
-        System.out.println(contrato.fornecedor);
-        
-        
+        //Collection coll = parametros.values();
+        String caminhoRelJasper = "geradorcontratos/relatorio.jrxml";
+        InputStream fonte = this.getClass().getClassLoader().getResourceAsStream(caminhoRelJasper);
+        try {
+        JasperReport report = JasperCompileManager.compileReport(fonte);
+        JasperPrint print = JasperFillManager.fillReport(report,parametros, new JREmptyDataSource());
+        JasperExportManager.exportReportToPdfFile(print,"batata.pdf");
+        System.out.println("antes do catch");
+        }catch(JRException e){
+        System.out.println("teste");
+                }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void ncontratoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ncontratoFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ncontratoFActionPerformed
+
+    private void nprocessoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nprocessoFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nprocessoFActionPerformed
+
+    private void nprocessopagamentoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nprocessopagamentoFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nprocessopagamentoFActionPerformed
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -948,16 +987,32 @@ public class FormularioContrato extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioContrato.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } 
+
+catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -972,15 +1027,14 @@ public class FormularioContrato extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel VigenciaLabel;
-    private java.awt.TextField fornecedortField;
+    private java.awt.TextArea detalobjsF;
+    private java.awt.TextField empenhoF;
+    private java.awt.TextField fornecedortF;
+    private java.awt.TextField gestorcontratoF;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -988,20 +1042,17 @@ public class FormularioContrato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -1013,12 +1064,17 @@ public class FormularioContrato extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -1036,31 +1092,34 @@ public class FormularioContrato extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private java.awt.TextField objetoContratotField;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField10;
-    private java.awt.TextField textField11;
-    private java.awt.TextField textField12;
-    private java.awt.TextField textField13;
-    private java.awt.TextField textField14;
-    private java.awt.TextField textField15;
-    private java.awt.TextField textField16;
-    private java.awt.TextField textField17;
-    private java.awt.TextField textField18;
-    private java.awt.TextField textField19;
-    private java.awt.TextField textField2;
-    private java.awt.TextField textField20;
-    private java.awt.TextField textField21;
-    private java.awt.TextField textField22;
-    private java.awt.TextField textField23;
-    private java.awt.TextField textField3;
-    private java.awt.TextField textField4;
-    private java.awt.TextField textField5;
-    private java.awt.TextField textField6;
-    private java.awt.TextField textField7;
-    private java.awt.TextField textField8;
-    private java.awt.TextField textField9;
-    private java.awt.TextField valorContratotField;
+    private java.awt.TextField modalcontratoF;
+    private java.awt.TextField ncontratoF;
+    private java.awt.TextField nprocessoF;
+    private java.awt.TextField nprocessopagamentoF;
+    private java.awt.TextField objcontratoF;
+    private java.awt.TextField saldoempenhoF;
+    private java.awt.TextField ta1fimF;
+    private java.awt.TextField ta1iniF;
+    private java.awt.TextField ta1objF;
+    private java.awt.TextField ta1valF;
+    private java.awt.TextField ta2fimF;
+    private java.awt.TextField ta2iniF;
+    private java.awt.TextField ta2objF;
+    private java.awt.TextField ta2valF;
+    private java.awt.TextField ta3fimF;
+    private java.awt.TextField ta3iniF;
+    private java.awt.TextField ta3objF;
+    private java.awt.TextField ta3valF;
+    private java.awt.TextField ta4fimF;
+    private java.awt.TextField ta4iniF;
+    private java.awt.TextField ta4objF;
+    private java.awt.TextField ta4valF;
+    private java.awt.TextField valcontratoF;
+    private java.awt.TextField valtotalF;
+    private java.awt.TextField vigPROfimF;
+    private java.awt.TextField vigPROiniF;
+    private java.awt.TextField vigTAfimF;
+    private java.awt.TextField vigTAiniF;
     // End of variables declaration//GEN-END:variables
+
 }
