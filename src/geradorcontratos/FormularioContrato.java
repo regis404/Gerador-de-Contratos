@@ -15,6 +15,8 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author 6459
@@ -908,57 +910,54 @@ public class FormularioContrato extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         HashMap parametros = new HashMap();
-        parametros.put("fornecedor",fornecedortF.getText());
-        parametros.put("ncontrato",ncontratoF.getText());
-        parametros.put("nprocesso",nprocessoF.getText());
-        parametros.put("nprocessopagamento",nprocessopagamentoF.getText()); 
-        parametros.put("gestorcontrato",gestorcontratoF.getText());
-        parametros.put("modalcontrata",modalcontratoF.getText());
-        
-       /* parametros.put("objcontrato",objcontratoF.getText());
-        parametros.put("valcontrato",valcontratoF.getText());
-        
-        parametros.put("vigCTini",vigTAiniF.getText());
-        parametros.put("vigCTfim",vigTAfimF.getText());
-        parametros.put("vigPROini",vigPROiniF.getText());
-        parametros.put("vigPROfim",vigPROfimF.getText());
-        
-        parametros.put("ta1ini",ta1iniF.getText());
-        parametros.put("ta1fim",ta1fimF.getText());
-        parametros.put("ta1val",ta1valF.getText());
-        parametros.put("ta1obj",ta1objF.getText());
-        parametros.put("ta2ini",ta2iniF.getText());
-        parametros.put("ta2fim",ta2fimF.getText());
-        parametros.put("ta2val",ta2valF.getText());
-        parametros.put("ta2obj",ta2objF.getText());
-        parametros.put("ta3ini",ta3iniF.getText());
-        parametros.put("ta3fim",ta3fimF.getText());
-        parametros.put("ta3val",ta3valF.getText());
-        parametros.put("ta3obj",ta3objF.getText());
-        parametros.put("ta4ini",ta4iniF.getText());
-        parametros.put("ta4fim",ta4fimF.getText());
-        parametros.put("ta4val",ta4valF.getText());
-        parametros.put("ta4obj",ta4objF.getText());
-        
-        
-        parametros.put("valtotal",valtotalF.getText());
-        parametros.put("empenho",empenhoF.getText());
-        parametros.put("saldoempenho",saldoempenhoF.getText());
-        parametros.put("detalobs",detalobjsF.getText());
-      */
- 
-        
-        //Collection coll = parametros.values();
-        String caminhoRelJasper = "geradorcontratos/relatorio.jrxml";
+        parametros.put("fornecedor", fornecedortF.getText());
+        parametros.put("ncontrato", ncontratoF.getText());
+        parametros.put("nprocesso", nprocessoF.getText());
+        parametros.put("nprocessopagamento", nprocessopagamentoF.getText());
+        parametros.put("gestorcontrato", gestorcontratoF.getText());
+        parametros.put("modalcontrata", modalcontratoF.getText());
+
+        parametros.put("objcontrato", objcontratoF.getText());
+        parametros.put("valcontrato", valcontratoF.getText());
+
+        parametros.put("vigCTini", vigTAiniF.getText());
+        parametros.put("vigCTfim", vigTAfimF.getText());
+        parametros.put("vigPROini", vigPROiniF.getText());
+        parametros.put("vigPROfim", vigPROfimF.getText());
+
+        parametros.put("ta1ini", ta1iniF.getText());
+        parametros.put("ta1fim", ta1fimF.getText());
+        parametros.put("ta1val", ta1valF.getText());
+        parametros.put("ta1obj", ta1objF.getText());
+        parametros.put("ta2ini", ta2iniF.getText());
+        parametros.put("ta2fim", ta2fimF.getText());
+        parametros.put("ta2val", ta2valF.getText());
+        parametros.put("ta2obj", ta2objF.getText());
+        parametros.put("ta3ini", ta3iniF.getText());
+        parametros.put("ta3fim", ta3fimF.getText());
+        parametros.put("ta3val", ta3valF.getText());
+        parametros.put("ta3obj", ta3objF.getText());
+        parametros.put("ta4ini", ta4iniF.getText());
+        parametros.put("ta4fim", ta4fimF.getText());
+        parametros.put("ta4val", ta4valF.getText());
+        parametros.put("ta4obj", ta4objF.getText());
+
+        parametros.put("valtotal", valtotalF.getText());
+        parametros.put("empenho", empenhoF.getText());
+        parametros.put("saldoempenho", saldoempenhoF.getText());
+        parametros.put("detalobs", detalobjsF.getText());
+
+        String caminhoRelJasper = "geradorcontrato/relatorio.jrxml";
         InputStream fonte = this.getClass().getClassLoader().getResourceAsStream(caminhoRelJasper);
         try {
         JasperReport report = JasperCompileManager.compileReport(fonte);
         JasperPrint print = JasperFillManager.fillReport(report,parametros, new JREmptyDataSource());
-        JasperExportManager.exportReportToPdfFile(print,"batata.pdf");
-        System.out.println("antes do catch");
+        JasperExportManager.exportReportToPdfFile(print,"teste.pdf");
+        System.out.println("imprimiu");
         }catch(JRException e){
-        System.out.println("teste");
-                }
+            System.out.println("caiu no catch");}
+        System.out.println("saiu");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ncontratoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ncontratoFActionPerformed
@@ -973,10 +972,10 @@ public class FormularioContrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nprocessopagamentoFActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -987,32 +986,21 @@ public static void main(String args[]) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioContrato.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormularioContrato.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormularioContrato.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
